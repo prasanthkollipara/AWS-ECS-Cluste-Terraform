@@ -1,0 +1,27 @@
+name: Multi Job and Multi Task file for GitHub actions
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  Job1:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v3
+   - name: Job1 task1
+     run: |
+      echo "Show mw what you got"
+      ls -al
+      mkdir ndir
+      
+   - name: Job1 task2
+     run: |
+      echo "Hello world!"
+      whoami
+  Job2:
+   runs-on: windows-latest
+   steps:
+    - name: Job2 Task1 
+      run: Get-Executionpolicy
